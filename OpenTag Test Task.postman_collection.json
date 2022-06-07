@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "b7e515a1-e36f-4fdd-9a88-172ee08641d5",
+		"name": "OpenTag Test Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1507105"
+	},
+	"item": [
+		{
+			"name": "All Species from \"A New Hope\" Film",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query search_species_from_new_hope ($filmID: ID!){\r\n  film (filmID: $filmID) {\r\n    title\r\n    speciesConnection {\r\n      species {\r\n        name\r\n      }\r\n    }\r\n  }\r\n}",
+						"variables": "{\r\n    \"filmID\": 1\r\n}"
+					}
+				},
+				"url": {
+					"raw": "https://swapi-graphql.netlify.app/.netlify/functions/index",
+					"protocol": "https",
+					"host": [
+						"swapi-graphql",
+						"netlify",
+						"app"
+					],
+					"path": [
+						".netlify",
+						"functions",
+						"index"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Droids Info",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query search_droids_info ($id: ID!){\r\n    species (id: $id) {\r\n        personConnection {\r\n            people {\r\n                name\r\n                birthYear\r\n                eyeColor\r\n                homeworld {\r\n                    name\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+						"variables": "{\r\n    \"id\": \"c3BlY2llczoy\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "https://swapi-graphql.netlify.app/.netlify/functions/index",
+					"protocol": "https",
+					"host": [
+						"swapi-graphql",
+						"netlify",
+						"app"
+					],
+					"path": [
+						".netlify",
+						"functions",
+						"index"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All People from \"A New Hope\" Film",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query search_people_from_new_hope ($filmID: ID!){\r\n  film (filmID: $filmID) {\r\n    title\r\n    characterConnection {\r\n      totalCount\r\n      characters {\r\n        id\r\n        name\r\n        gender\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n",
+						"variables": "{\r\n    \"filmID\": 1\r\n}"
+					}
+				},
+				"url": {
+					"raw": "https://swapi-graphql.netlify.app/.netlify/functions/index",
+					"protocol": "https",
+					"host": [
+						"swapi-graphql",
+						"netlify",
+						"app"
+					],
+					"path": [
+						".netlify",
+						"functions",
+						"index"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Person with \"unique ID = 4\" Info",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query search_person_with_unique_id_4 ($personID: ID!){\r\n  person (personID: $personID) {\r\n    name\r\n    birthYear\r\n    homeworld {\r\n        name\r\n    }\r\n    eyeColor\r\n    starshipConnection {\r\n        starships {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
+						"variables": "{\r\n    \"personID\": 4\r\n}"
+					}
+				},
+				"url": {
+					"raw": "https://swapi-graphql.netlify.app/.netlify/functions/index",
+					"protocol": "https",
+					"host": [
+						"swapi-graphql",
+						"netlify",
+						"app"
+					],
+					"path": [
+						".netlify",
+						"functions",
+						"index"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
